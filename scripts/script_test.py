@@ -16,6 +16,7 @@ def check_url(url):
 url = 'https://data.cityofnewyork.us/resource/h9gi-nx95.json'
 data = check_url(url)
 
+# Save to a csv file 
 if data:
     print("cleared")
     current_data = data.json()
