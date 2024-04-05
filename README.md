@@ -41,5 +41,8 @@ _Steps from extracting tha data to saving into Azure:_
 
     - Data Cleaning: Cleaned the data and stored the clean data on the Axure Container. 
 
+**Data Modleing:**
+
+
 **Data Mapping:**
 ETL OR ELT Process:
