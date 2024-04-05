@@ -59,7 +59,7 @@ df = pd.DataFrame(all_data)
 
 
 #definning the name of storgae, container, and blob
-CONNECTION_STRING_AZURE_STORAGE = "DefaultEndpointsProtocol=https;AccountName=stcarcrashcis9440;AccountKey=PcCugp27/hg9ylWsfp/2+mTEFCw9DRl8Zue8z/HsWbpWbCdmnmlnSQ3rgaZY26Cs3JN5nNIRuoKo+AStGRDI5g==;EndpointSuffix=core.windows.net"
+CONNECTION_STRING_AZURE_STORAGE = "myazurekey"
 CONTAINER_AZURE = 'carcrash'
 blob_name = "car_crash.csv"
 
