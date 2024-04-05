@@ -57,9 +57,14 @@ while True:
 # Convert the JSON data to a Pandas DataFrame
 df = pd.DataFrame(all_data)
 
+config_file_path = 'config/config.json'
+
+#load the JSON configuration file
+with open(config_file_path, 'r') as config_file:
+    config = json.load(config_file)
 
 #definning the name of storgae, container, and blob
-CONNECTION_STRING_AZURE_STORAGE = 
+CONNECTION_STRING_AZURE_STORAGE = config["connectionString"]
 CONTAINER_AZURE = 'carcrash'
 blob_name = "car_crash.csv"
 
