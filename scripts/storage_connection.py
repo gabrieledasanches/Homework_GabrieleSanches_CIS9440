@@ -59,7 +59,7 @@ df = pd.DataFrame(all_data)
 
 
 #definning the name of storgae, container, and blob
-CONNECTION_STRING_AZURE_STORAGE = "myazurekey"
+CONNECTION_STRING_AZURE_STORAGE = 
 CONTAINER_AZURE = 'carcrash'
 blob_name = "car_crash.csv"
 
