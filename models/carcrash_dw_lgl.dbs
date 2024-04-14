@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="carcrash_dw_lgl" id="LogicalDesign-1ca2" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="carcrash_dw_lgl" >
+		<table name="dim_contributingfactors" prior="dim_contributing" >
+			<column name="contributingfactor_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="contributing_factor" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_contributingfactors" unique="PRIMARY_KEY" >
+				<column name="contributingfactor_id" />
+			</index>
+		</table>
+		<table name="dim_date" prior="Entity" >
+			<column name="date_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="year" type="INT" jt="4" />
+			<column name="monthNumber" type="INT" jt="4" />
+			<column name="quarter" type="INT" jt="4" />
+			<column name="dayNumber" type="INT" jt="4" />
+			<column name="dayName" type="VARCHAR" length="50" jt="12" />
+			<column name="monthName" type="VARCHAR" length="50" jt="12" />
+			<column name="week_of_the_month" type="INT" jt="4" />
+			<column name="week_of_the_year" type="INT" jt="4" />
+			<column name="hourNumber" type="INT" jt="4" />
+			<column name="date_isoformat" type="DATETIME" jt="93" />
+			<index name="pk_dim_date" unique="PRIMARY_KEY" >
+				<column name="date_id" />
+			</index>
+		</table>
+		<table name="dim_location" prior="dim_" >
+			<column name="location_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="borough" type="VARCHAR" length="255" jt="12" />
+			<column name="latitude" type="DOUBLE" jt="8" />
+			<column name="longitude" type="DOUBLE" jt="8" />
+			<column name="zip_code" type="INT" jt="4" />
+			<column name="on_street_name" type="VARCHAR" length="255" jt="12" />
+			<column name="off_street_name" type="VARCHAR" length="255" jt="12" />
+			<column name="cross_street_name" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_location" unique="PRIMARY_KEY" >
+				<column name="location_id" />
+			</index>
+		</table>
+		<table name="dim_vehicle_type" prior="dim_victim" >
+			<column name="vehicle_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="vehicle_type_code" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_vehicle_type" unique="PRIMARY_KEY" >
+				<column name="vehicle_id" />
+			</index>
+		</table>
+		<table name="facts_crashes" prior="Entity" >
+			<column name="fact_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="number_of_persons_injured" type="INT" jt="4" />
+			<column name="number_of_persons_killed" type="INT" jt="4" />
+			<column name="number_of_pedestrians_injured" type="INT" jt="4" />
+			<column name="number_of_pedestrians_killed" type="INT" jt="4" />
+			<column name="number_of_cyclist_injured" type="INT" jt="4" />
+			<column name="number_of_cyclist_killed" type="INT" jt="4" />
+			<column name="number_of_motorist_injured" type="INT" jt="4" />
+			<column name="number_of_motorist_killed" type="INT" jt="4" />
+			<column name="number_of_accidents" type="INT" jt="4" />
+			<column name="location_id" type="INT" jt="4" />
+			<column name="date_id" type="BIGINT" jt="-5" />
+			<column name="vahicle_id" type="INT" jt="4" />
+			<column name="contributing_factor_id" prior="contributing_factor_ID" type="INT" jt="4" />
+			<index name="pk_facts_crashes" unique="PRIMARY_KEY" >
+				<column name="fact_id" />
+			</index>
+			<fk name="fk_facts_crashes_dim_vehicle_type" virtual="y" to_schema="carcrash_dw_lgl.INSTANCE" to_table="dim_vehicle_type" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="vahicle_id" pk="vehicle_id" />
+			</fk>
+			<fk name="fk_facts_crashes_dim_location" virtual="y" to_schema="carcrash_dw_lgl.INSTANCE" to_table="dim_location" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="location_id" pk="location_id" />
+			</fk>
+			<fk name="fk_facts_crashes_dim_contributingfactors" virtual="y" to_schema="carcrash_dw_lgl.INSTANCE" to_table="dim_contributingfactors" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="contributing_factor_id" pk="contributingfactor_id" />
+			</fk>
+			<fk name="fk_facts_crashes_dim_date" virtual="y" to_schema="carcrash_dw_lgl.INSTANCE" to_table="dim_date" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="date_id" pk="date_id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-1cb8" show_relation="columns" >
+		<entity schema="carcrash_dw_lgl.INSTANCE" name="dim_contributingfactors" color="C1D8EE" x="425" y="935" />
+		<entity schema="carcrash_dw_lgl.INSTANCE" name="dim_date" color="C1D8EE" x="51" y="510" />
+		<entity schema="carcrash_dw_lgl.INSTANCE" name="dim_location" color="C1D8EE" x="816" y="510" />
+		<entity schema="carcrash_dw_lgl.INSTANCE" name="dim_vehicle_type" color="C1D8EE" x="408" y="323" />
+		<entity schema="carcrash_dw_lgl.INSTANCE" name="facts_crashes" color="C1D8EE" x="374" y="493" />
+		<callout x="544" y="51" pointer="Round" >
+			<comment><![CDATA[This is a layout - a diagram with tools.
+- Create new entities by right-clicking the layout. 
+- Double-click entity headers to edit.
+- For a better understanding of the schema, create multiple layouts.
+- Deploy the model into the database by converting it first to the physical design.]]></comment>
+		</callout>
+	</layout>
+</project>
