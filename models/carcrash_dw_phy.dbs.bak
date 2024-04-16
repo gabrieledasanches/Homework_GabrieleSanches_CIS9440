@@ -152,7 +152,8 @@ CREATE TABLE carcrash_dw_lgl.INSTANCE.facts_crashes (
 	contributing_factor_id int64  
  );
 
-ALTER TABLE carcrash_dw_lgl.INSTANCE.facts_crashes ADD PRIMARY KEY ( fact_id )  NOT ENFORCED;]]></string>
+ALTER TABLE carcrash_dw_lgl.INSTANCE.facts_crashes ADD PRIMARY KEY ( fact_id )  NOT ENFORCED;
+]]></string>
 		</script>
 	</layout>
 </project>
