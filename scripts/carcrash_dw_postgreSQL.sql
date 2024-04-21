@@ -1,27 +1,27 @@
-CREATE SCHEMA IF NOT EXISTS "instance";
+CREATE SCHEMA IF NOT EXISTS "carcrash";
 
-CREATE  TABLE "instance".dim_contributingfactors ( 
+CREATE  TABLE "carcrash".dim_contributingfactors ( 
 	contributingfactor_id BIGINT  NOT NULL  ,
 	contributing_factor  VARCHAR(255)    ,
 	CONSTRAINT pk_dim_contributingfactors PRIMARY KEY ( contributingfactor_id )
  );
 
-CREATE  TABLE "instance".dim_date ( 
+CREATE  TABLE "carcrash".dim_date ( 
 	date_id              BIGINT  NOT NULL  ,
-	"year"               INT    ,
-	monthnumber          INT    ,
-	quarter              INT    ,
-	daynumber            INT    ,
-	dayname              VARCHAR(50)    ,
-	monthname            VARCHAR(50)    ,
-	week_of_the_month    INT    ,
-	week_of_the_year     INT    ,
-	hournumber           INT    ,
-	date_isoformat       DATETIME    ,
+	date_iso_format      DATETIME    ,
+	year_number          INT    ,
+	quarter_number       INT    ,
+	month_number         INT    ,
+	month_name           VARCHAR(50)    ,
+	day_number           INT    ,
+	day_name             VARCHAR(50)    ,
+	hour_number          INT    ,
+	week_of_month        INT    ,
+	week_of_year         INT    ,
 	CONSTRAINT pk_dim_date PRIMARY KEY ( date_id )
  );
 
-CREATE  TABLE "instance".dim_location ( 
+CREATE  TABLE "carcrash".dim_location ( 
 	location_id          BIGINT  NOT NULL  ,
 	borough              VARCHAR(255)    ,
 	latitude             DOUBLE    ,
@@ -29,17 +29,16 @@ CREATE  TABLE "instance".dim_location (
 	zip_code             INT    ,
 	on_street_name       VARCHAR(255)    ,
 	off_street_name      VARCHAR(255)    ,
-	cross_street_name    VARCHAR(255)    ,
 	CONSTRAINT pk_dim_location PRIMARY KEY ( location_id )
  );
 
-CREATE  TABLE "instance".dim_vehicle_type ( 
+CREATE  TABLE "carcrash".dim_vehicle_type ( 
 	vehicle_id           BIGINT  NOT NULL  ,
 	vehicle_type_code    VARCHAR(255)    ,
 	CONSTRAINT pk_dim_vehicle_type PRIMARY KEY ( vehicle_id )
  );
 
-CREATE  TABLE "instance".facts_crashes ( 
+CREATE  TABLE "carcrash".facts_crashes ( 
 	fact_id              BIGINT  NOT NULL  ,
 	number_of_persons_injured INT    ,
 	number_of_persons_killed INT    ,
@@ -49,7 +48,6 @@ CREATE  TABLE "instance".facts_crashes (
 	number_of_cyclist_killed INT    ,
 	number_of_motorist_injured INT    ,
 	number_of_motorist_killed INT    ,
-	number_of_accidents  INT    ,
 	location_id          INT    ,
 	date_id              BIGINT    ,
 	vahicle_id           INT    ,
