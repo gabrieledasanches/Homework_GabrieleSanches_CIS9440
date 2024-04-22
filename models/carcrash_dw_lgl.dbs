@@ -11,6 +11,7 @@
 		<table name="dim_date" prior="Entity" >
 			<column name="date_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="date_iso_format" prior="date_isoformat" type="DATETIME" jt="93" />
+			<column name="time_militaryformat" prior="time_num" type="VARCHAR" length="50" jt="12" />
 			<column name="year_number" prior="yearNumber" type="INT" jt="4" />
 			<column name="quarter_number" prior="quarter" type="INT" jt="4" />
 			<column name="month_number" prior="monthNumber" type="INT" jt="4" />
