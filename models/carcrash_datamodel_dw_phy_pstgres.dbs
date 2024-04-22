@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="carcrash_dw_lgl" id="PostgreSQL-158" database="PostgreSQL" >
+	<schema name="instance" catalogname="carcrash_dw_lgl" >
+		<table name="dim_contributingfactors" >
+			<column name="contributingfactor_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="contributing_factor" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_contributingfactors" unique="PRIMARY_KEY" >
+				<column name="contributingfactor_id" />
+			</index>
+		</table>
+		<table name="dim_date" >
+			<column name="date_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="date_iso_format" type="DATETIME" jt="93" />
+			<column name="year_number" type="INT" jt="4" />
+			<column name="quarter_number" type="INT" jt="4" />
+			<column name="month_number" type="INT" jt="4" />
+			<column name="month_name" type="VARCHAR" length="50" jt="12" />
+			<column name="day_number" type="INT" jt="4" />
+			<column name="day_name" type="VARCHAR" length="50" jt="12" />
+			<column name="hour_number" type="INT" jt="4" />
+			<column name="week_of_month" type="INT" jt="4" />
+			<column name="week_of_year" type="INT" jt="4" />
+			<column name="time_militaryformat" type="VARCHAR" length="50" jt="12" />
+			<index name="pk_dim_date" unique="PRIMARY_KEY" >
+				<column name="date_id" />
+			</index>
+		</table>
+		<table name="dim_location" >
+			<column name="location_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="borough" type="VARCHAR" length="255" jt="12" />
+			<column name="latitude" type="DOUBLE" jt="8" />
+			<column name="longitude" type="DOUBLE" jt="8" />
+			<column name="zip_code" type="INT" jt="4" />
+			<column name="on_street_name" type="VARCHAR" length="255" jt="12" />
+			<column name="off_street_name" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_location" unique="PRIMARY_KEY" >
+				<column name="location_id" />
+			</index>
+		</table>
+		<table name="dim_vehicle_type" >
+			<column name="vehicle_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="vehicle_type_code" type="VARCHAR" length="255" jt="12" />
+			<index name="pk_dim_vehicle_type" unique="PRIMARY_KEY" >
+				<column name="vehicle_id" />
+			</index>
+		</table>
+		<table name="facts_crashes" >
+			<column name="fact_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="number_of_persons_injured" type="INT" jt="4" />
+			<column name="number_of_persons_killed" type="INT" jt="4" />
+			<column name="number_of_pedestrians_injured" type="INT" jt="4" />
+			<column name="number_of_pedestrians_killed" type="INT" jt="4" />
+			<column name="number_of_cyclist_injured" type="INT" jt="4" />
+			<column name="number_of_cyclist_killed" type="INT" jt="4" />
+			<column name="number_of_motorist_injured" type="INT" jt="4" />
+			<column name="number_of_motorist_killed" type="INT" jt="4" />
+			<column name="location_id" type="INT" jt="4" />
+			<column name="date_id" type="BIGINT" jt="-5" />
+			<column name="vahicle_id" type="INT" jt="4" />
+			<column name="contributingfactor_id" type="INT" jt="4" />
+			<index name="pk_facts_crashes" unique="PRIMARY_KEY" >
+				<column name="fact_id" />
+			</index>
+			<fk name="fk_facts_crashes_dim_vehicle_type" virtual="y" to_schema="carcrash_dw_lgl.instance" to_table="dim_vehicle_type" >
+				<fk_column name="vahicle_id" pk="vehicle_id" />
+			</fk>
+			<fk name="fk_facts_crashes_dim_location" virtual="y" to_schema="carcrash_dw_lgl.instance" to_table="dim_location" >
+				<fk_column name="location_id" pk="location_id" />
+			</fk>
+			<fk name="fk_facts_crashes_dim_contributingfactors" virtual="y" to_schema="carcrash_dw_lgl.instance" to_table="dim_contributingfactors" >
+				<fk_column name="contributingfactor_id" pk="contributingfactor_id" />
+			</fk>
+			<fk name="fk_facts_crashes_dim_date" virtual="y" to_schema="carcrash_dw_lgl.instance" to_table="dim_date" >
+				<fk_column name="date_id" pk="date_id" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-11e5" confirmed="y" show_relation="columns" >
+		<entity schema="carcrash_dw_lgl.instance" name="dim_contributingfactors" color="C1D8EE" x="425" y="935" />
+		<entity schema="carcrash_dw_lgl.instance" name="dim_date" color="C1D8EE" x="51" y="510" />
+		<entity schema="carcrash_dw_lgl.instance" name="dim_location" color="C1D8EE" x="816" y="510" />
+		<entity schema="carcrash_dw_lgl.instance" name="dim_vehicle_type" color="C1D8EE" x="408" y="323" />
+		<entity schema="carcrash_dw_lgl.instance" name="facts_crashes" color="C1D8EE" x="374" y="493" />
+		<callout x="544" y="51" pointer="Round" >
+			<comment><![CDATA[This is a layout - a diagram with tools.
+- Create new entities by right-clicking the layout. 
+- Double-click entity headers to edit.
+- For a better understanding of the schema, create multiple layouts.
+- Deploy the model into the database by converting it first to the physical design.]]></comment>
+		</callout>
+		<script name="SQL_Editor" id="Editor-760" language="SQL" >
+			<string><![CDATA[CREATE SCHEMA IF NOT EXISTS "instance";
+
+CREATE  TABLE "instance".dim_contributingfactors ( 
+	contributingfactor_id BIGINT  NOT NULL  ,
+	contributing_factor  VARCHAR(255)    ,
+	CONSTRAINT pk_dim_contributingfactors PRIMARY KEY ( contributingfactor_id )
+ );
+
+CREATE  TABLE "instance".dim_date ( 
+	date_id              BIGINT  NOT NULL  ,
+	date_iso_format      DATETIME    ,
+	year_number          INT    ,
+	quarter_number       INT    ,
+	month_number         INT    ,
+	month_name           VARCHAR(50)    ,
+	day_number           INT    ,
+	day_name             VARCHAR(50)    ,
+	hour_number          INT    ,
+	week_of_month        INT    ,
+	week_of_year         INT    ,
+	time_militaryformat  VARCHAR(50)    ,
+	CONSTRAINT pk_dim_date PRIMARY KEY ( date_id )
+ );
+
+CREATE  TABLE "instance".dim_location ( 
+	location_id          BIGINT  NOT NULL  ,
+	borough              VARCHAR(255)    ,
+	latitude             DOUBLE    ,
+	longitude            DOUBLE    ,
+	zip_code             INT    ,
+	on_street_name       VARCHAR(255)    ,
+	off_street_name      VARCHAR(255)    ,
+	CONSTRAINT pk_dim_location PRIMARY KEY ( location_id )
+ );
+
+CREATE  TABLE "instance".dim_vehicle_type ( 
+	vehicle_id           BIGINT  NOT NULL  ,
+	vehicle_type_code    VARCHAR(255)    ,
+	CONSTRAINT pk_dim_vehicle_type PRIMARY KEY ( vehicle_id )
+ );
+
+CREATE  TABLE "instance".facts_crashes ( 
+	fact_id              BIGINT  NOT NULL  ,
+	number_of_persons_injured INT    ,
+	number_of_persons_killed INT    ,
+	number_of_pedestrians_injured INT    ,
+	number_of_pedestrians_killed INT    ,
+	number_of_cyclist_injured INT    ,
+	number_of_cyclist_killed INT    ,
+	number_of_motorist_injured INT    ,
+	number_of_motorist_killed INT    ,
+	location_id          INT    ,
+	date_id              BIGINT    ,
+	vahicle_id           INT    ,
+	contributingfactor_id INT    ,
+	CONSTRAINT pk_facts_crashes PRIMARY KEY ( fact_id )
+ );
+]]></string>
+		</script>
+	</layout>
+</project>

@@ -11,7 +11,6 @@
 		<table name="dim_date" prior="Entity" >
 			<column name="date_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="date_iso_format" prior="date_isoformat" type="DATETIME" jt="93" />
-			<column name="time_militaryformat" prior="time_num" type="VARCHAR" length="50" jt="12" />
 			<column name="year_number" prior="yearNumber" type="INT" jt="4" />
 			<column name="quarter_number" prior="quarter" type="INT" jt="4" />
 			<column name="month_number" prior="monthNumber" type="INT" jt="4" />
@@ -21,6 +20,7 @@
 			<column name="hour_number" prior="hourNumber" type="INT" jt="4" />
 			<column name="week_of_month" prior="week_of_the_month" type="INT" jt="4" />
 			<column name="week_of_year" prior="week_of_the_year" type="INT" jt="4" />
+			<column name="time_militaryformat" prior="time_num" type="VARCHAR" length="50" jt="12" />
 			<index name="pk_dim_date" unique="PRIMARY_KEY" >
 				<column name="date_id" />
 			</index>
@@ -57,7 +57,7 @@
 			<column name="location_id" type="INT" jt="4" />
 			<column name="date_id" type="BIGINT" jt="-5" />
 			<column name="vahicle_id" type="INT" jt="4" />
-			<column name="contributing_factor_id" prior="contributing_factor_ID" type="INT" jt="4" />
+			<column name="contributingfactor_id" prior="contributing_factor_id" type="INT" jt="4" />
 			<index name="pk_facts_crashes" unique="PRIMARY_KEY" >
 				<column name="fact_id" />
 			</index>
@@ -68,7 +68,7 @@
 				<fk_column name="location_id" pk="location_id" />
 			</fk>
 			<fk name="fk_facts_crashes_dim_contributingfactors" virtual="y" to_schema="carcrash_dw_lgl.INSTANCE" to_table="dim_contributingfactors" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="contributing_factor_id" pk="contributingfactor_id" />
+				<fk_column name="contributingfactor_id" pk="contributingfactor_id" />
 			</fk>
 			<fk name="fk_facts_crashes_dim_date" virtual="y" to_schema="carcrash_dw_lgl.INSTANCE" to_table="dim_date" type="NonIdentifying" mandatory="n" cardinality="OneMore" range_from="0" range_to="0" >
 				<fk_column name="date_id" pk="date_id" />

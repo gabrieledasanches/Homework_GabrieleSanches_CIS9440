@@ -18,6 +18,7 @@ CREATE  TABLE "carcrash".dim_date (
 	hour_number          INT    ,
 	week_of_month        INT    ,
 	week_of_year         INT    ,
+	time_militaryformat  VARCHAR(50)    ,
 	CONSTRAINT pk_dim_date PRIMARY KEY ( date_id )
  );
 
@@ -51,6 +52,6 @@ CREATE  TABLE "carcrash".facts_crashes (
 	location_id          INT    ,
 	date_id              BIGINT    ,
 	vahicle_id           INT    ,
-	contributing_factor_id INT    ,
+	contributingfactor_id INT    ,
 	CONSTRAINT pk_facts_crashes PRIMARY KEY ( fact_id )
  );
