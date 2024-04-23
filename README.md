@@ -39,12 +39,10 @@ The project aims to improve client satisfaction, create a stronger reputation fo
 ### Information Architecture
 
 <img width="1341" alt="Screenshot 2024-04-22 at 11 47 16 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/5ebc37fd-e400-4798-a902-f480f267774f">
-1. Data Source: The data is sourced from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data.
 
+1. Data Source: The data is sourced from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data.
 2. Storage: The raw data is stored in Microsoft Azure Blob Storage. Azure Blob Storage provides scalable, secure, and cost-effective storage for large volumes of data.
-   
 3. Processes: Cleaning, Reformating, Transforming
-   
 4. Database: Load the data into PostgreSQL database, which serves as the central repository for the cleaned and transformed data. PostgreSQL is a powerful, open-source relational database management system known for its reliability and performance.
 
 
