@@ -42,7 +42,8 @@ The project aims to improve client satisfaction, create a stronger reputation fo
 
 
 
-### Staging Area:** Microsoft Azure 
+### Staging Area
+Microsoft Azure 
 
 _Steps from extracting tha data to saving into Azure:_
     - To extract the data, I create a python script for web API using the requests library an dthe json package. I used the API from my data sourece (form open NYC data), extracted the data and created a csv file.
