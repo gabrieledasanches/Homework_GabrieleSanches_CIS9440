@@ -11,7 +11,7 @@ The data has 29 columns, and 2.07M rows and it includes details about crashes ev
 ## Table of Contents
 
 - [Business Case](#business-case)
-- [Business Requirements/Rules](#business-requirements/rules)
+- [Business Requirements/Rules](#business-requirementsrules)
 - [Information Architecture](#information-architecture)
 - [Staging Area](#staging-area)
 - [Data Modeling](#data-modeling)
