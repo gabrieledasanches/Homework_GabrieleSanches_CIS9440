@@ -8,6 +8,16 @@ This project uses the data set for motor vehicles collisions from nyc open data 
 
 The data has 29 columns, and 2.07M rows and it includes details about crashes events, that were reported by the police. Each row describes one crash event, and have a collision ID to be uniquely identified. The columns provide information  about the collision such as date and time it occurred, the location (zip code, borough, street name), number os persons injured and killed, if the incident involved pedestrian or cyclists, the number that got injured or killed, contributing factors for the collision, and vehicle type.
 
+## Table of Contents
+
+- [Business Case](#business-case)
+- [Business Requirements/Rules](#business-requirements/rules)
+- [Information Architecture](#information-architecture)
+- [Staging Area](#staging-area)
+- [Data Modeling](#data-modeling)
+- [ETL Process](#etl-process)
+- [Data Mapping](#data-mapping)
+
 
 **Business Case:**
 
@@ -42,11 +52,16 @@ _Steps from extracting tha data to saving into Azure:_
 
 
 **Data Modeling:**
+
 Used DB Schema to create the data model.
 My satr schema contains 1 fact table called facts_crashes and 4 dimension tables: dim_date, dim_location, dim_vehicle_type, and dim_contributingfactors. All relationships are one to many. 
 
 <img width="1029" alt="Screenshot 2024-04-22 at 11 42 11 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/c78f92b0-3ff2-4c92-9de4-88a435eaf19c">
 
 
-**Data Mapping:**
+**ETL Process:**
+
 ETL Process: After having the data stored in Azure, I started the 
+
+
+**Data Mapping:**
