@@ -26,7 +26,10 @@ The project aims to improve client satisfaction, create a stronger reputation fo
 - Identify the top contributing factors for crashes.
 
 
-**Information Architecture:** [Information_Architecture.pdf](https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/files/15070987/Information_Architecture.pdf)
+**Information Architecture:** 
+
+<img width="1341" alt="Screenshot 2024-04-22 at 11 47 16 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/5ebc37fd-e400-4798-a902-f480f267774f">
+
 
 
 **Staging Area:** Microsoft Azure 
@@ -40,7 +43,8 @@ _Steps from extracting tha data to saving into Azure:_
 
 **Data Modeling:**
 Used DB Schema to create the data model.
-My schema contained 1 fact table called facts_crashes and 4 dimension tables: dim_date, dim_location, dim_vehicle_type, and dim_contributingfactors.
+My satr schema contains 1 fact table called facts_crashes and 4 dimension tables: dim_date, dim_location, dim_vehicle_type, and dim_contributingfactors. All relationships are one to many. 
+
 <img width="1029" alt="Screenshot 2024-04-22 at 11 42 11 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/c78f92b0-3ff2-4c92-9de4-88a435eaf19c">
 
 
