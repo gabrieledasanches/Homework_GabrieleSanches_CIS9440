@@ -47,13 +47,10 @@ The project aims to improve client satisfaction, create a stronger reputation fo
 
 
 ### Staging Area
-Microsoft Azure 
 
-_Steps from extracting tha data to saving into Azure:_
-    - To extract the data, I create a python script for web API using the requests library an dthe json package. I used the API from my data sourece (form open NYC data), extracted the data and created a csv file.
-    - I chose to store the data in Azure as my storage of choice.  
-    - To connect to Azure, I created a code that contained the key, container name, and blob name (file name).
-    - After that configuration was done, I stored my csv file in the container. (The file stored was the raw data)
+- Microsoft Azure 
+- To connect to Azure, I created a code that contained the key, container name, and blob name (file name).
+- After that configuration was done, I stored my csv file in the container. (The file stored was the raw data)
 
 
 ### Data Modeling
