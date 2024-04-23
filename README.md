@@ -16,7 +16,7 @@ The data has 29 columns, and 2.07M rows and it includes details about crashes ev
 - [Staging Area](#staging-area)
 - [Data Modeling](#data-modeling)
 - [ETL Process](#etl-process)
-- [Data Mapping](#data-mapping)
+- [Serving Data](#serving-data)
 
 
 ### Business Case
@@ -39,7 +39,10 @@ The project aims to improve client satisfaction, create a stronger reputation fo
 ### Information Architecture
 
 <img width="1341" alt="Screenshot 2024-04-22 at 11 47 16 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/5ebc37fd-e400-4798-a902-f480f267774f">
-
+1. Data Source: The data is sourced from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data.
+2. Storage: The raw data is stored in Microsoft Azure Blob Storage. Azure Blob Storage provides scalable, secure, and cost-effective storage for large volumes of data.
+3. Processes: Cleaning, Reformating, Transforming
+4. Database: Load the data into PostgreSQL database, which serves as the central repository for the cleaned and transformed data. PostgreSQL is a powerful, open-source relational database management system known for its reliability and performance.
 
 
 ### Staging Area
@@ -54,7 +57,7 @@ _Steps from extracting tha data to saving into Azure:_
 
 ### Data Modeling
 
-Used DB Schema to create the data model.
+Used DB Schema to create the dimensional modeling .
 My satr schema contains 1 fact table called facts_crashes and 4 dimension tables: dim_date, dim_location, dim_vehicle_type, and dim_contributingfactors. All relationships are one to many. 
 
 <img width="1029" alt="Screenshot 2024-04-22 at 11 42 11 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/c78f92b0-3ff2-4c92-9de4-88a435eaf19c">
@@ -62,7 +65,10 @@ My satr schema contains 1 fact table called facts_crashes and 4 dimension tables
 
 ### ETL Process
 
-ETL Process: After having the data stored in Azure, I started the 
+- Extraction: Data is extracted from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data using a Python script with web API functionality. The data is retrieved in JSON format and converted into a CSV file.
+- Transformation: Upon extraction, the raw data undergoes cleaning and transformation. This involves handling missing values and duplicates, formatting dates and times, renaming columns, and creating "subsets" of the data.
+      - Transformation also includes data mapping: Each column from the source CSV file is mapped to the corresponding dataframes, based on the dimensional modeling, that will later be loaded into the corresponding PostgreSQL tables (dim_date, dim_location, dim_contributingfactors, dim_vehicle_type, facts_crashes).
+- Loading: The cleaned and transformed data is loaded into the PostgreSQL database using SQL commands. Separate tables are created for each dimension (dim_date, dim_location, dim_vehicle_type, dim_contributingfactors) and the fact table (facts_crashes).
 
 
-### Data Mapping
+### Serving Data
