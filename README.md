@@ -21,9 +21,21 @@ The data has 29 columns, and 2.07M rows and it includes details about crashes ev
 
 ### Business Case
 
-A consulting firm specialized in analyzing and mitigating risks associated with motor vehicle collisions wants to analyze the Motor Vehicle Car Crashes data set to determine if the time the crash happened have a correlation with the number of people killed/injured and to find the top 5 contributing factor for crashes. 
-    
-The project aims to improve client satisfaction, create a stronger reputation for the company, and generate possible revenue growth from additional consulting engagements. 
+A consulting firm specializing in risk analysis and mitigation for motor vehicle collisions aims to leverage data-driven insights to enhance client services and expand its market presence. The firm has identified the Motor Vehicle Collisions dataset from NYC Open Data as a valuable resource for understanding the factors contributing to crashes and their impact on fatalities and injuries.
+
+The project aims to leverage the Motor Vehicle Collisions dataset to conduct a comprehensive analysis of crash patterns, contributing factors, and their impact on fatalities, injuries, and property damage. Key objectives include:
+
+- Crash Analysis:
+      Explore the total number of accidents, fatalities, and injuries to understand overall trends and severity levels over time.
+      Analyze temporal patterns in crash occurrence and severity using line charts to identify high-risk periods.
+- Contributing Factor Identification:
+      Identify and prioritize the top contributing factors for crashes using scatter plots to visualize relationships between factors and incident severity.
+      Use interactive visuals to delve into contributing factors by vehicle type and accident frequency.
+- Geospatial Analysis (Borough-Level):
+      Utilize borough-level analysis to visualize crash distribution and highlight areas with higher incident rates.
+- Temporal Trends:
+      Analyze temporal trends in injuries and fatalities by year and month using heat maps to highlight seasonal variations and long-term patterns.
+      Explore correlations between time of the crash and the number of people injured or killed using line charts.
 
 ### Business Requirements/Rules
 
@@ -34,6 +46,7 @@ The project aims to improve client satisfaction, create a stronger reputation fo
 - Handle missing values
 - Determine correlations between the time of the crash and the number of people killed or injured.
 - Identify the top contributing factors for crashes.
+- Create a dashboard with analytical insights
 
 
 ### Information Architecture
@@ -70,3 +83,15 @@ My satr schema contains 1 fact table called facts_crashes and 4 dimension tables
 
 
 ### Serving Data
+
+Interactive Tableau Dahsboard (filter all visuals by year of the crash) https://public.tableau.com/app/profile/gabriele.sanches/viz/car_crashes_NYC/Dashboard1#1 
+- Number of accidents 
+- Number of fatalities
+- Number of injuries
+- Vehicle type vs. number of accidents (top 10)
+- Contributing factors for crashes
+- Crashes by borough
+- Total of victims injured by year and month
+- Number of people injured vs. time of the crash
+- Total of victims killed by year and month 
+- Number of people ikilled vs. time of the crash
