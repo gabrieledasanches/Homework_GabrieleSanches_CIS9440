@@ -54,15 +54,14 @@ The project aims to leverage the Motor Vehicle Collisions dataset to conduct a c
 <img width="1341" alt="Screenshot 2024-04-22 at 11 47 16 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/5ebc37fd-e400-4798-a902-f480f267774f">
 
 1. Data Source: The data is sourced from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data.
-2. Storage: The raw data is stored in Microsoft Azure Blob Storage. Azure Blob Storage provides scalable, secure, and cost-effective storage for large volumes of data.
-3. Processes: Cleaning, Reformating, Transforming
-4. Database: Load the data into PostgreSQL database, which serves as the central repository for the cleaned and transformed data. PostgreSQL is a powerful, open-source relational database management system known for its reliability and performance.
+2. Storage: The raw data is stored in Microsoft Azure Storage
+4. Database: Load the data into PostgreSQL database, which serves as the repository for the cleaned and transformed data.
 
 
 ### Staging Area
 
 - Microsoft Azure 
-- To connect to Azure, I created a code that contained the key, container name, and blob name (file name).
+- To connect to Azure, I created a code that contained the key, container name, and blob name (file name)
 - After that configuration was done, I stored my csv file in the container. (The file stored was the raw data)
 
 
@@ -77,8 +76,7 @@ My satr schema contains 1 fact table called facts_crashes and 4 dimension tables
 ### ETL Process
 
 - Extraction: Data is extracted from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data using a Python script with web API functionality. The data is retrieved in JSON format and converted into a CSV file.
-- Transformation: Upon extraction, the raw data undergoes cleaning and transformation. This involves handling missing values and duplicates, formatting dates and times, renaming columns, and creating "subsets" of the data.
-      - Transformation also includes data mapping: Each column from the source CSV file is mapped to the corresponding dataframes, based on the dimensional modeling, that will later be loaded into the corresponding PostgreSQL tables (dim_date, dim_location, dim_contributingfactors, dim_vehicle_type, facts_crashes).
+- Transformation: Upon extraction, the raw data undergoes cleaning and transformation. This involves handling missing values and duplicates, formatting dates and times, renaming columns, and creating "subsets" of the data. Transformation also includes data mapping: Each column from the source CSV file is mapped to the corresponding dataframes, based on the dimensional modeling, that will later be loaded into the corresponding PostgreSQL tables (dim_date, dim_location, dim_contributingfactors, dim_vehicle_type, facts_crashes).
 - Loading: The cleaned and transformed data is loaded into the PostgreSQL database using SQL commands. Separate tables are created for each dimension (dim_date, dim_location, dim_vehicle_type, dim_contributingfactors) and the fact table (facts_crashes).
 
 
@@ -91,7 +89,7 @@ Interactive Tableau Dahsboard (filter all visuals by year of the crash) https://
 - Vehicle type vs. number of accidents (top 10)
 - Contributing factors for crashes
 - Crashes by borough
-- Total of victims injured by year and month
+- Total number of victims injured by year and month
 - Number of people injured vs. time of the crash
-- Total of victims killed by year and month 
-- Number of people ikilled vs. time of the crash
+- Total number of victims killed by year and month 
+- Number of people killed vs. time of the crash
