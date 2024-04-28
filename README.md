@@ -6,7 +6,7 @@
 This project uses the data set for motor vehicles collisions from nyc open data (https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data)
 
 
-The data has 29 columns, and 2.07M rows and it includes details about crashes events, that were reported by the police. Each row describes one crash event, and have a collision ID to be uniquely identified. The columns provide information  about the collision such as date and time it occurred, the location (zip code, borough, street name), number os persons injured and killed, if the incident involved pedestrian or cyclists, the number that got injured or killed, contributing factors for the collision, and vehicle type.
+The data has 29 columns, and 2.07M rows and it includes details about crashes events, that were reported by the police. Each row describes one crash event, and have a collision ID to be uniquely identified. The columns provide information  about the collision such as date and time it occurred, the location (zip code, borough, street name), number of persons injured and killed, if the incident involved pedestrians or cyclists, the number of people that got injured or killed, contributing factors for the collision, and vehicle type.
 
 ## Table of Contents
 
