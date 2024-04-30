@@ -52,7 +52,7 @@ The project aims to leverage the Motor Vehicle Collisions dataset to conduct a c
 
 <img width="1341" alt="Screenshot 2024-04-22 at 11 47 16 PM" src="https://github.com/gabrieledasanches/Homework_GabrieleSanches_CIS9440/assets/159973139/5ebc37fd-e400-4798-a902-f480f267774f">
 
-1. Data Source: The data is sourced from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data.
+1. Data Source: The data is sourced from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data. Created an WebAPI Script to get the data and save into a csv file
 2. Storage: The raw data is stored in Microsoft Azure Storage
 4. Database: Load the data into PostgreSQL database, which serves as the repository for the cleaned and transformed data.
 
@@ -76,7 +76,7 @@ My satr schema contains 1 fact table called facts_crashes and 4 dimension tables
 
 - Extraction: Data is extracted from the Motor Vehicle Collisions - Crashes dataset provided by NYC Open Data using a Python script with web API functionality. The data is retrieved in JSON format and converted into a CSV file.
 - Transformation: Upon extraction, the raw data undergoes cleaning and transformation. This involves handling missing values and duplicates, formatting dates and times, renaming columns, and creating "subsets" of the data. Transformation also includes data mapping: Each column from the source CSV file is mapped to the corresponding dataframes, based on the dimensional modeling, that will later be loaded into the corresponding PostgreSQL tables (dim_date, dim_location, dim_contributingfactors, dim_vehicle_type, facts_crashes).
-- Loading: The cleaned and transformed data is loaded into the PostgreSQL database using SQL commands. Separate tables are created for each dimension (dim_date, dim_location, dim_vehicle_type, dim_contributingfactors) and the fact table (facts_crashes).
+- Loading: The cleaned and transformed data is loaded into the PostgreSQL database using SQL commands. Separate tables are created for each dimension (dim_date, dim_location, dim_vehicle_type, dim_contributingfactors) and the fact table (facts_crashes), and data is loaded into those tables.
 
 
 ### Serving Data
