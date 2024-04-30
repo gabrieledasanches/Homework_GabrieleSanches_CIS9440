@@ -44,7 +44,7 @@ The project aims to leverage the Motor Vehicle Collisions dataset to conduct a c
 - Time and date should be in separated colums
 - Handle missing values
 - Determine correlations between the time of the crash and the number of people killed or injured.
-- Identify the top contributing factors for crashes.
+- Identify the top contributing factors for crashes
 - Create a dashboard with analytical insights
 
 
