@@ -42,7 +42,6 @@ The project aims to leverage the Motor Vehicle Collisions dataset to conduct a c
 - Acquire data from NYC Open Data
 - Date should be in the following format: YYYY-MM-DD
 - Time and date should be in separated colums
-- Data set should include only 2021 data 
 - Handle missing values
 - Determine correlations between the time of the crash and the number of people killed or injured.
 - Identify the top contributing factors for crashes.
