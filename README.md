@@ -1,5 +1,3 @@
-# Homework_GabrieleSanches_CIS9440
-
 # Car Crashes in New York City 
 ### Motor Vehicle Collisions - Crashes
 
